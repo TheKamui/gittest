@@ -3,6 +3,7 @@ class Cars(object):
     """dockstring"""
     eng = False
     fari = False
+    gear = 0 #назовем нейтральную 0
     def __init__(self, color, doors, carmark):
         """Construcktor"""
         self.__color = color
@@ -18,6 +19,17 @@ class Cars(object):
             self.__color = c
         else:
             raise ValueError
+
+    def change_gear(self,n):
+        if n == "1" or n == "2" or n == "3" or n == "4":
+            self.gear = int(n)
+        elif n == "n":
+            self.gear = 0
+        elif n == "b":
+            self.gear = -1
+        else:
+            raise ValueError
+
     def brake(self):
         """
         Stop the car
